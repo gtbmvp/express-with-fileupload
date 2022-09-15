@@ -5,7 +5,7 @@ import fileService from "./file-service.js";
 class PostService {
   async create(data, files) {
     let fileName = "No file uploaded";
-    if (files) fileName = fileService.saveFile(files.picture);
+    if (files) fileName = fileService.saveFile(files.picture); //picture field is corresponding formData field
     const createdPost = await Post.create({ ...data, picture: fileName });
     return createdPost;
   }
